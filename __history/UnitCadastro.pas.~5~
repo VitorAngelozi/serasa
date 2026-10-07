@@ -47,15 +47,15 @@ end;
 //verificacoes de cada edit.
 procedure TfrmCadastro.SalvarClick(Sender: TObject);
 begin
-      if Length(Trim(edtNome.text)) < 2 then
+      if Trim(edtNome.text)  = '' then
       begin
         Application.MessageBox(
-        'Preencha o nome com ao menos 2 caracteres',
+        'Preencha o nome!',
         'Nome invalido',
         MB_OK + MB_ICONWARNING
         );
 
-        edtNome.SetFocus;
+        edt.Nome.SetFocues;
         Exit;
 
       end;

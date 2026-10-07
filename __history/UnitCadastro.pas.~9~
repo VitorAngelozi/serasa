@@ -50,7 +50,7 @@ begin
       if Length(Trim(edtNome.text)) < 2 then
       begin
         Application.MessageBox(
-        'Preencha o nome com ao menos 2 caracteres',
+        'Preencha o nome!',
         'Nome invalido',
         MB_OK + MB_ICONWARNING
         );
