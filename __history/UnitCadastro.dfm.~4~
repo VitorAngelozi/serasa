@@ -2,8 +2,8 @@ object frmCadastro: TfrmCadastro
   Left = 0
   Top = 0
   Caption = 'frmCadastro'
-  ClientHeight = 331
-  ClientWidth = 390
+  ClientHeight = 362
+  ClientWidth = 410
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -91,7 +91,6 @@ object frmCadastro: TfrmCadastro
     Top = 141
     Width = 121
     Height = 23
-    MaxLength = 11
     TabOrder = 3
     Text = '1313...'
     OnChange = edtCpfChange

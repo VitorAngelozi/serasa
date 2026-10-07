@@ -47,8 +47,6 @@ end;
 //verificacoes de cada edit.
 procedure TfrmCadastro.SalvarClick(Sender: TObject);
 begin
-
-//basicao, apenas conferindo se sem espaco ele tem mais q 2 caracteres
       if Length(Trim(edtNome.text)) < 2 then
       begin
         Application.MessageBox(
@@ -62,7 +60,6 @@ begin
 
       end;
 
-//basicao, apenas conferindo se sem espaco ele tem mais q 2 caractere
       if Length(Trim(edtSobrenome.text)) < 2 then
       begin
         Application.MessageBox(
@@ -75,24 +72,6 @@ begin
         Exit;
 
       end;
-//validacao em cpf para ter 11 caracteres
-      if Length(Trim(edtCPF)) < 11 then
-      begin
-        Application.MessageBox(
-        'Preencha com a quantidade correta de 11 caracteres',
-        'CPF invalido',
-        MB_OK + MB_ICONWARNING
-
-        );
-//aq a cada 3 adiciona o .
-        for I := 1 to 11 do
-        begin
-        
-        end;
-          
-
-      end;
-
 end;
 
 end.
