@@ -1,0 +1,131 @@
+object frmCadastro: TfrmCadastro
+  Left = 0
+  Top = 0
+  Caption = 'frmCadastro'
+  ClientHeight = 362
+  ClientWidth = 410
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object Label1: TLabel
+    Left = 24
+    Top = 24
+    Width = 119
+    Height = 15
+    Caption = 'Cadastro Bolsa Familia'
+  end
+  object Label2: TLabel
+    Left = 24
+    Top = 56
+    Width = 86
+    Height = 15
+    Caption = 'Digite seu nome'
+  end
+  object Label3: TLabel
+    Left = 188
+    Top = 56
+    Width = 114
+    Height = 15
+    Caption = 'digite seu sobrenome'
+  end
+  object Label4: TLabel
+    Left = 188
+    Top = 120
+    Width = 76
+    Height = 15
+    Caption = 'Digite seu CPF'
+  end
+  object Label5: TLabel
+    Left = 24
+    Top = 176
+    Width = 76
+    Height = 15
+    Caption = 'Digite seu CEP'
+  end
+  object Label6: TLabel
+    Left = 188
+    Top = 176
+    Width = 104
+    Height = 15
+    Caption = 'Digite seu endereco'
+  end
+  object Label7: TLabel
+    Left = 22
+    Top = 120
+    Width = 159
+    Height = 15
+    Caption = 'Digite sua data de nascimento'
+  end
+  object edtNome: TEdit
+    Left = 24
+    Top = 77
+    Width = 121
+    Height = 23
+    MaxLength = 50
+    TabOrder = 0
+    Text = 'Luis'
+  end
+  object edtSobrenome: TEdit
+    Left = 188
+    Top = 77
+    Width = 121
+    Height = 23
+    MaxLength = 50
+    TabOrder = 1
+    Text = 'Inacio'
+  end
+  object edtCep: TEdit
+    Left = 24
+    Top = 197
+    Width = 121
+    Height = 23
+    TabOrder = 2
+    Text = '1313...'
+  end
+  object edtCpf: TEdit
+    Left = 188
+    Top = 141
+    Width = 121
+    Height = 23
+    TabOrder = 3
+    Text = '1313...'
+    OnChange = edtCpfChange
+  end
+  object edtEndereco: TEdit
+    Left = 188
+    Top = 197
+    Width = 121
+    Height = 23
+    TabOrder = 4
+    Text = 'Rua das rachadinhas'
+  end
+  object edtDataNascimento: TEdit
+    Left = 24
+    Top = 141
+    Width = 121
+    Height = 23
+    TabOrder = 5
+    Text = '13/13/2013'
+  end
+  object Limpar: TButton
+    Left = 70
+    Top = 248
+    Width = 75
+    Height = 25
+    Caption = 'Limpar'
+    TabOrder = 6
+  end
+  object Salvar: TButton
+    Left = 188
+    Top = 248
+    Width = 75
+    Height = 25
+    Caption = 'Salvar'
+    TabOrder = 7
+    OnClick = SalvarClick
+  end
+end
