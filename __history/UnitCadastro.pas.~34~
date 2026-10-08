@@ -47,13 +47,12 @@ end;
 //verificacoes de cada edit.
 procedure TfrmCadastro.SalvarClick(Sender: TObject);
 
-begin
-
-      var
+ var
         I: Integer;
         CpfFormatado: string;
+        DataNascimentoFormatado: string;
+begin
 
-      CpfFormatado := '';
 
 //basicao, apenas conferindo se sem espaco ele tem mais q 2 caracteres
       if Length(Trim(edtNome.text)) < 2 then
@@ -93,12 +92,14 @@ begin
         MB_OK + MB_ICONWARNING
 
         );
+        edtCpf.SetFocus;
+        Exit;
 
       end;
 
 //aq a cada 3 adiciona o .
-
-        for I := 0 to 11 do
+        CpfFormatado := '';
+        for I := 1 to 11 do
         begin
 
           CpfFormatado := CpfFormatado + edtCpf.Text[I];
@@ -108,13 +109,43 @@ begin
 
           if I = 9 then
           CpfFormatado := CpfFormatado + '-';
-          edtCpf.Text := CpfFormatado;
 
         end;
-          
+
+        edtCpf.Text := CpfFormatado;
+
+
+      //logica para ´validar e formatar data de nascimento
+      if Length(Trim(edtDataNascimento.Text)) <> 8 then
+      begin
+        Application.MessageBox(
+        'Data invalida!',
+        'Data invalida',
+         MB_OK + MB_ICONWARNING
+        );
+
+        edtDatanascimento.SetFocus;
+        Exit;
+      end;
+
+      DataNascimentoFormatado := '';
+      for I := 1 to 8 do
+        begin
+          DataNascimentoFormatado := DataNascimentoFormatado +
+          edtDataNascimento.Text[I];
+          if (I=2) or (I=4) or (I=6) then
+          DataNascimentoFormatado := DataNascimentoFormatado + '/';
+
+        end;
+
+        edtDataNascimento.Text := DataNascimentoFormatado;
+
+
 
       end;
 
-end;
+
+
+
 
 end.
