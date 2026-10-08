@@ -110,11 +110,10 @@ begin
           CpfFormatado := CpfFormatado + '-';
 
         end;
-
-        edtCpf.Text := CpfFormatado;
+          
 
       end;
 
-
+end;
 
 end.

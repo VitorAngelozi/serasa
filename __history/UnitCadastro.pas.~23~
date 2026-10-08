@@ -47,11 +47,13 @@ end;
 //verificacoes de cada edit.
 procedure TfrmCadastro.SalvarClick(Sender: TObject);
 
- var
-        I: Integer;
-        CpfFormatado: string;
 begin
 
+      var
+        I: Integer;
+        CpfFormatado: string;
+
+      CpfFormatado := '';
 
 //basicao, apenas conferindo se sem espaco ele tem mais q 2 caracteres
       if Length(Trim(edtNome.text)) < 2 then
@@ -91,13 +93,11 @@ begin
         MB_OK + MB_ICONWARNING
 
         );
-        edtCpf.SetFocus;
-        Exit;
 
       end;
 
 //aq a cada 3 adiciona o .
-        CpfFormatado := '';
+
         for I := 1 to 11 do
         begin
 
@@ -108,13 +108,13 @@ begin
 
           if I = 9 then
           CpfFormatado := CpfFormatado + '-';
+          edtCpf.Text := CpfFormatado;
 
         end;
-
-        edtCpf.Text := CpfFormatado;
+          
 
       end;
 
-
+end;
 
 end.

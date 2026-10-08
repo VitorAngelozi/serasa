@@ -97,7 +97,7 @@ begin
       end;
 
 //aq a cada 3 adiciona o .
-        CpfFormatado := '';
+
         for I := 1 to 11 do
         begin
 
@@ -110,11 +110,10 @@ begin
           CpfFormatado := CpfFormatado + '-';
 
         end;
-
-        edtCpf.Text := CpfFormatado;
+          
 
       end;
 
-
+end;
 
 end.
