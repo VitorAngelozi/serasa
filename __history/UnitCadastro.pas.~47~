@@ -25,7 +25,6 @@ type
     Salvar: TButton;
     procedure edtCpfChange(Sender: TObject);
     procedure SalvarClick(Sender: TObject);
-    procedure LimparClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,21 +42,6 @@ procedure TfrmCadastro.edtCpfChange(Sender: TObject);
 begin
 
 end;
-
-//parte para qnd clicar em limpar
-
-procedure TfrmCadastro.LimparClick(Sender: TObject);
-begin
-  edtNome.Clear;
-  edtSobrenome.Clear;
-  edtCpf.Clear;
-  edtDataNascimento.Clear;
-  edtCep.Clear;
-  edtEndereco.Clear;
-  edtNome.SetFocus;
-end;
-
-
 
 //aqui refere-se a parte de clicar em salvar. vai fazer as
 //verificacoes de cada edit.

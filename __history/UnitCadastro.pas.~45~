@@ -47,14 +47,19 @@ end;
 //verificacoes de cada edit.
 procedure TfrmCadastro.SalvarClick(Sender: TObject);
 
+//variaveis q vao ser usadas pra validar e formatar
  var
         I: Integer;
         CpfFormatado: string;
         DataNascimentoFormatado: string;
+        DataValida: TDateTime;
+        CepFormatado: string;
+        NumeroCpf: Int64;
+        NumeroCep: Integer;
 begin
 
 
-//basicao, apenas conferindo se sem espaco ele tem mais q 2 caracteres
+//basicao, apenas  conferindo NOME, se sem espaco ele tem mais q 2 caracteres
       if Length(Trim(edtNome.text)) < 2 then
       begin
         Application.MessageBox(
@@ -68,7 +73,7 @@ begin
 
       end;
 
-//basicao, apenas conferindo se sem espaco ele tem mais q 2 caractere
+//apenas conferindo se sem espaco ele tem mais q 2 caractere
       if Length(Trim(edtSobrenome.text)) < 2 then
       begin
         Application.MessageBox(
@@ -87,7 +92,7 @@ begin
       if Length(Trim(edtCPF.Text)) <> 11 then
       begin
         Application.MessageBox(
-        'Preencha com a quantidade correta de 11 caracteres',
+        'CPF invalido ou vazio!',
         'CPF invalido',
         MB_OK + MB_ICONWARNING
 
@@ -112,6 +117,21 @@ begin
 
         end;
 
+        //validacao pra ver se so tem numero
+        if not TryStrToInt64(edtCpf.Text, NumeroCpf) then
+        begin
+          Application.MessageBox(
+            'O CPF deve conter apenas numeros',
+            'CPF invalido',
+            MB_OK + MB_ICONWARNING
+          );
+
+          edtCpf.SetFocus;
+          Exit;
+        end;
+
+
+
         edtCpf.Text := CpfFormatado;
 
 
@@ -133,16 +153,84 @@ begin
         begin
           DataNascimentoFormatado := DataNascimentoFormatado +
           edtDataNascimento.Text[I];
-          if (I=2) or (I=4) or (I=6) then
+          if (I=2) or (I=4) then
           DataNascimentoFormatado := DataNascimentoFormatado + '/';
 
         end;
 
+        //verifica se bate com uma data
+        if not TryStrToDate(DataNascimentoFormatado, DataValida) then
+          begin
+            Application.MessageBox(
+              'Digite uma data valida',
+              'Data invalida',
+              MB_OK + MB_ICONWARNING
+            );
+
+            edtDataNascimento.SetFocus;
+            Exit;
+          end;
+
         edtDataNascimento.Text := DataNascimentoFormatado;
 
 
+        //validacao cep e formatacao
+        if Length(Trim(edtCep.Text)) <> 8 then
+        begin
+          Application.MessageBox(
+            'O CEP deve conter 8 digitos',
+            'CEP invalido',
+            MB_OK + MB_ICONWARNING
+          );
 
-      end;
+          edtCep.SetFocus;
+          Exit;
+        end;
+
+        //verificando se eh int
+        if not TryStrToInt(edtCep.Text, NumeroCep) then
+          begin
+            Application.MessageBox(
+              'O CEP deve conter apenas numeros',
+              'CEP invalido',
+              MB_OK + MB_ICONWARNING
+            );
+
+            edtCep.SetFocus;
+            Exit;
+          end
+
+        CepFormatado := '';
+
+        for I := 1 to 8 do
+          begin
+            CepFormatado := CepFormatado + edtCep.Text[I];
+
+            if I = 5 then
+              CepFormatado := CepFormatado + '-';
+          end;
+
+
+        edtCep.Text := CepFormatado;
+
+        //validacao se rua nao esta vazio
+
+          if Length(Trim(edtEndereco.Text)) < 2 then
+          begin
+            Application.MessageBox(
+            'O endereco esta nulo ou menor que dois digitos!',
+            'Endereco invalido',
+            MB_OK + MB_ICONWARNING
+          );
+          edtEndereco.SetFocus;
+          Exit;
+          end;
+
+
+end;
+
+
+
 
 
 

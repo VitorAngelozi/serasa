@@ -25,7 +25,6 @@ type
     Salvar: TButton;
     procedure edtCpfChange(Sender: TObject);
     procedure SalvarClick(Sender: TObject);
-    procedure LimparClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,21 +42,6 @@ procedure TfrmCadastro.edtCpfChange(Sender: TObject);
 begin
 
 end;
-
-//parte para qnd clicar em limpar
-
-procedure TfrmCadastro.LimparClick(Sender: TObject);
-begin
-  edtNome.Clear;
-  edtSobrenome.Clear;
-  edtCpf.Clear;
-  edtDataNascimento.Clear;
-  edtCep.Clear;
-  edtEndereco.Clear;
-  edtNome.SetFocus;
-end;
-
-
 
 //aqui refere-se a parte de clicar em salvar. vai fazer as
 //verificacoes de cada edit.
@@ -117,18 +101,6 @@ begin
         Exit;
 
       end;
-       //validacao pra ver se so tem numero
-        if not TryStrToInt64(edtCpf.Text, NumeroCpf) then
-        begin
-          Application.MessageBox(
-            'O CPF deve conter apenas numeros',
-            'CPF invalido',
-            MB_OK + MB_ICONWARNING
-          );
-
-          edtCpf.SetFocus;
-          Exit;
-        end;
 
 //aq a cada 3 adiciona o .
         CpfFormatado := '';
@@ -145,7 +117,18 @@ begin
 
         end;
 
+        //validacao pra ver se so tem numero
+        if not TryStrToInt64(edtCpf.Text, NumeroCpf) then
+        begin
+          Application.MessageBox(
+            'O CPF deve conter apenas numeros',
+            'CPF invalido',
+            MB_OK + MB_ICONWARNING
+          );
 
+          edtCpf.SetFocus;
+          Exit;
+        end;
 
 
 
@@ -204,19 +187,6 @@ begin
           Exit;
         end;
 
-        //verificando se eh int
-        if not TryStrToInt(edtCep.Text, NumeroCep) then
-          begin
-            Application.MessageBox(
-              'O CEP deve conter apenas numeros',
-              'CEP invalido',
-              MB_OK + MB_ICONWARNING
-            );
-
-            edtCep.SetFocus;
-            Exit;
-          end;
-
         CepFormatado := '';
 
         for I := 1 to 8 do
@@ -227,6 +197,17 @@ begin
               CepFormatado := CepFormatado + '-';
           end;
 
+          if not TryStrToInt(edtCep.Text, NumeroCep) then
+          begin
+            Application.MessageBox(
+              'O CEP deve conter apenas numeros',
+              'CEP invalido',
+              MB_OK + MB_ICONWARNING
+            );
+
+            edtCep.SetFocus;
+            Exit;
+          end;
 
         edtCep.Text := CepFormatado;
 
