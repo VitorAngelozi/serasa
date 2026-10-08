@@ -50,6 +50,8 @@ procedure TfrmCadastro.SalvarClick(Sender: TObject);
  var
         I: Integer;
         CpfFormatado: string;
+        DataNascimentoFormatado: string;
+        DataValida: TDateTime;
 begin
 
 
@@ -67,7 +69,7 @@ begin
 
       end;
 
-//basicao, apenas conferindo se sem espaco ele tem mais q 2 caractere
+//apenas conferindo se sem espaco ele tem mais q 2 caractere
       if Length(Trim(edtSobrenome.text)) < 2 then
       begin
         Application.MessageBox(
@@ -86,16 +88,18 @@ begin
       if Length(Trim(edtCPF.Text)) <> 11 then
       begin
         Application.MessageBox(
-        'Preencha com a quantidade correta de 11 caracteres',
+        'CPF invalido ou vazio!',
         'CPF invalido',
         MB_OK + MB_ICONWARNING
 
         );
+        edtCpf.SetFocus;
+        Exit;
 
       end;
 
 //aq a cada 3 adiciona o .
-
+        CpfFormatado := '';
         for I := 1 to 11 do
         begin
 
@@ -106,13 +110,43 @@ begin
 
           if I = 9 then
           CpfFormatado := CpfFormatado + '-';
-          edtCpf.Text := CpfFormatado;
 
         end;
-          
+
+        edtCpf.Text := CpfFormatado;
+
+
+      //logica para ´validar e formatar data de nascimento
+      if Length(Trim(edtDataNascimento.Text)) <> 8 then
+      begin
+        Application.MessageBox(
+        'Data invalida!',
+        'Data invalida',
+         MB_OK + MB_ICONWARNING
+        );
+
+        edtDatanascimento.SetFocus;
+        Exit;
+      end;
+
+      DataNascimentoFormatado := '';
+      for I := 1 to 8 do
+        begin
+          DataNascimentoFormatado := DataNascimentoFormatado +
+          edtDataNascimento.Text[I];
+          if (I=2) or (I=4) then
+          DataNascimentoFormatado := DataNascimentoFormatado + '/';
+
+        end;
+
+        edtDataNascimento.Text := DataNascimentoFormatado;
+
+
 
       end;
 
-end;
+
+
+
 
 end.

@@ -51,6 +51,7 @@ procedure TfrmCadastro.SalvarClick(Sender: TObject);
         I: Integer;
         CpfFormatado: string;
         DataNascimentoFormatado: string;
+        DataValida: TDateTime;
 begin
 
 
@@ -68,7 +69,7 @@ begin
 
       end;
 
-//basicao, apenas conferindo se sem espaco ele tem mais q 2 caractere
+//apenas conferindo se sem espaco ele tem mais q 2 caractere
       if Length(Trim(edtSobrenome.text)) < 2 then
       begin
         Application.MessageBox(
@@ -137,6 +138,19 @@ begin
           DataNascimentoFormatado := DataNascimentoFormatado + '/';
 
         end;
+
+        //verifica se bate com uma data
+        if not TryStrToDate(DataNascimentoFormatado, DataValida) then
+          begin
+            Application.MessageBox(
+              'Digite uma data valida',
+              'Data invalida',
+              MB_OK + MB_ICONWARNING
+            );
+
+            edtDataNascimento.SetFocus;
+            Exit;
+          end;
 
         edtDataNascimento.Text := DataNascimentoFormatado;
 
