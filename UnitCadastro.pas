@@ -23,7 +23,6 @@ type
     edtDataNascimento: TEdit;
     btnLimpar: TButton;
     btnSalvar: TButton;
-    procedure edtCpfChange(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnLimparClick(Sender: TObject);
   private

@@ -91,7 +91,6 @@ object frmCadastro: TfrmCadastro
     Height = 23
     MaxLength = 14
     TabOrder = 3
-    OnChange = edtCpfChange
   end
   object edtEndereco: TEdit
     Left = 188
