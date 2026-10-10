@@ -109,22 +109,22 @@ object frmCadastro: TfrmCadastro
     NumbersOnly = True
     TabOrder = 5
   end
-  object btnLimpar: TButton
+  object Limpar: TButton
     Left = 70
     Top = 248
     Width = 75
     Height = 25
-    Caption = 'btnLimpar'
+    Caption = 'Limpar'
     TabOrder = 6
-    OnClick = btnLimparClick
+    OnClick = LimparClick
   end
-  object btnSalvar: TButton
+  object Salvar: TButton
     Left = 188
     Top = 248
     Width = 75
     Height = 25
-    Caption = 'btnSalvar'
+    Caption = 'Salvar'
     TabOrder = 7
-    OnClick = btnSalvarClick
+    OnClick = SalvarClick
   end
 end

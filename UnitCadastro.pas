@@ -21,11 +21,11 @@ type
     edtEndereco: TEdit;
     Label7: TLabel;
     edtDataNascimento: TEdit;
-    Limpar: TButton;
-    Salvar: TButton;
+    btnLimpar: TButton;
+    btnSalvar: TButton;
     procedure edtCpfChange(Sender: TObject);
-    procedure SalvarClick(Sender: TObject);
-    procedure LimparClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnLimparClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,7 +46,7 @@ end;
 
 //parte para qnd clicar em limpar
 
-procedure TfrmCadastro.LimparClick(Sender: TObject);
+procedure TfrmCadastro.btnLimparClick(Sender: TObject);
 begin
   edtNome.Clear;
   edtSobrenome.Clear;
@@ -61,7 +61,7 @@ end;
 
 //aqui refere-se a parte de clicar em salvar. vai fazer as
 //verificacoes de cada edit.
-procedure TfrmCadastro.SalvarClick(Sender: TObject);
+procedure TfrmCadastro.btnSalvarClick(Sender: TObject);
 
 //variaveis q vao ser usadas pra validar e formatar
  var
