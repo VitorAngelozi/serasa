@@ -2,8 +2,8 @@ object frmCadastro: TfrmCadastro
   Left = 0
   Top = 0
   Caption = 'frmCadastro'
-  ClientHeight = 362
-  ClientWidth = 410
+  ClientHeight = 331
+  ClientWidth = 390
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,7 +15,7 @@ object frmCadastro: TfrmCadastro
     Left = 24
     Top = 24
     Width = 119
-    Height = 20
+    Height = 15
     Caption = 'Cadastro Bolsa Familia'
   end
   object Label2: TLabel
@@ -65,63 +65,66 @@ object frmCadastro: TfrmCadastro
     Top = 77
     Width = 121
     Height = 23
+    MaxLength = 50
     TabOrder = 0
-    Text = 'Luis'
   end
   object edtSobrenome: TEdit
     Left = 188
     Top = 77
     Width = 121
     Height = 23
+    MaxLength = 50
     TabOrder = 1
-    Text = 'Inacio'
   end
-  object Edit3: TEdit
+  object edtCep: TEdit
     Left = 24
     Top = 197
     Width = 121
     Height = 23
-    TabOrder = 2
-    Text = '1313...'
+    MaxLength = 9
+    TabOrder = 3
   end
-  object Edit4: TEdit
+  object edtCpf: TEdit
     Left = 188
     Top = 141
     Width = 121
     Height = 23
-    TabOrder = 3
-    Text = '1313...'
+    MaxLength = 14
+    TabOrder = 4
+    OnChange = edtCpfChange
   end
-  object Edit5: TEdit
+  object edtEndereco: TEdit
     Left = 188
     Top = 197
     Width = 121
     Height = 23
-    TabOrder = 4
-    Text = 'Rua das rachadinhas'
+    MaxLength = 100
+    TabOrder = 5
   end
   object edtDataNascimento: TEdit
     Left = 24
     Top = 141
     Width = 121
     Height = 23
-    TabOrder = 5
-    Text = '13/13/2013'
+    NumbersOnly = True
+    TabOrder = 2
   end
-  object Limpar: TButton
+  object btnLimpar: TButton
     Left = 70
     Top = 248
     Width = 75
     Height = 25
-    Caption = 'Limpar'
+    Caption = 'btnLimpar'
     TabOrder = 6
+    OnClick = btnLimparClick
   end
-  object Salvar: TButton
+  object btnSalvar: TButton
     Left = 188
     Top = 248
     Width = 75
     Height = 25
-    Caption = 'Salvar'
+    Caption = 'btnSalvar'
     TabOrder = 7
+    OnClick = btnSalvarClick
   end
 end
