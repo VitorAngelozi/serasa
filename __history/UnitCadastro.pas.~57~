@@ -21,6 +21,7 @@ type
     Label7: TLabel;
     btnLimpar: TButton;
     btnSalvar: TButton;
+    ActionMainMenuBar1: TActionMainMenuBar;
     mskCpf: TMaskEdit;
     mskDataNascimento: TMaskEdit;
     mskCep: TMaskEdit;

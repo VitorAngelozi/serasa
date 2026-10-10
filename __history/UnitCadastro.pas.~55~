@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.ToolWin,
+  Vcl.ActnMan, Vcl.ActnCtrls, Vcl.ActnMenus;
 
 type
   TfrmCadastro = class(TForm)
@@ -14,17 +15,18 @@ type
     Label3: TLabel;
     edtSobrenome: TEdit;
     Label4: TLabel;
-    edtCep: TEdit;
     Label5: TLabel;
-    edtCpf: TEdit;
     Label6: TLabel;
-    edtEndereco: TEdit;
     Label7: TLabel;
-    edtDataNascimento: TEdit;
-    Limpar: TButton;
-    Salvar: TButton;
-    procedure edtCpfChange(Sender: TObject);
-    procedure SalvarClick(Sender: TObject);
+    btnLimpar: TButton;
+    btnSalvar: TButton;
+    ActionMainMenuBar1: TActionMainMenuBar;
+    mskCpf: TMaskEdit;
+    mskDataNascimento: TMaskEdit;
+    mskCep: TMaskEdit;
+    edtEndereco: TEdit;
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnLimparClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,14 +40,25 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmCadastro.edtCpfChange(Sender: TObject);
-begin
 
+//parte para qnd clicar em limpar
+
+procedure TfrmCadastro.btnLimparClick(Sender: TObject);
+begin
+  edtNome.Clear;
+  edtSobrenome.Clear;
+  edtCpf.Clear;
+  mskDataNascimento.Clear;
+  edtCep.Clear;
+  edtEndereco.Clear;
+  edtNome.SetFocus;
 end;
+
+
 
 //aqui refere-se a parte de clicar em salvar. vai fazer as
 //verificacoes de cada edit.
-procedure TfrmCadastro.SalvarClick(Sender: TObject);
+procedure TfrmCadastro.btnSalvarClick(Sender: TObject);
 
 //variaveis q vao ser usadas pra validar e formatar
  var
@@ -145,7 +158,7 @@ begin
          MB_OK + MB_ICONWARNING
         );
 
-        edtDatanascimento.SetFocus;
+        mskDataNascimento.SetFocus;
         Exit;
       end;
 
@@ -153,7 +166,7 @@ begin
       for I := 1 to 8 do
         begin
           DataNascimentoFormatado := DataNascimentoFormatado +
-          edtDataNascimento.Text[I];
+          mskDataNascimento.Text[I];
           if (I=2) or (I=4) then
           DataNascimentoFormatado := DataNascimentoFormatado + '/';
 
@@ -168,11 +181,11 @@ begin
               MB_OK + MB_ICONWARNING
             );
 
-            edtDataNascimento.SetFocus;
+            mskDataNascimento.SetFocus;
             Exit;
           end;
 
-        edtDataNascimento.Text := DataNascimentoFormatado;
+        mskDataNascimento.Text := DataNascimentoFormatado;
 
 
         //validacao cep e formatacao
@@ -199,7 +212,7 @@ begin
 
             edtCep.SetFocus;
             Exit;
-          end
+          end;
 
         CepFormatado := '';
 

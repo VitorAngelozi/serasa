@@ -1,6 +1,7 @@
 object frmCadastro: TfrmCadastro
   Left = 0
   Top = 0
+  BorderStyle = bsSingle
   Caption = 'frmCadastro'
   ClientHeight = 331
   ClientWidth = 390
@@ -81,7 +82,8 @@ object frmCadastro: TfrmCadastro
     Top = 197
     Width = 121
     Height = 23
-    TabOrder = 2
+    MaxLength = 9
+    TabOrder = 4
   end
   object edtCpf: TEdit
     Left = 188
@@ -90,7 +92,6 @@ object frmCadastro: TfrmCadastro
     Height = 23
     MaxLength = 14
     TabOrder = 3
-    OnChange = edtCpfChange
   end
   object edtEndereco: TEdit
     Left = 188
@@ -98,7 +99,7 @@ object frmCadastro: TfrmCadastro
     Width = 121
     Height = 23
     MaxLength = 100
-    TabOrder = 4
+    TabOrder = 5
   end
   object edtDataNascimento: TEdit
     Left = 24
@@ -106,24 +107,24 @@ object frmCadastro: TfrmCadastro
     Width = 121
     Height = 23
     NumbersOnly = True
-    TabOrder = 5
+    TabOrder = 2
   end
-  object Limpar: TButton
+  object btnLimpar: TButton
     Left = 70
     Top = 248
     Width = 75
     Height = 25
-    Caption = 'Limpar'
+    Caption = 'btnLimpar'
     TabOrder = 6
-    OnClick = LimparClick
+    OnClick = btnLimparClick
   end
-  object Salvar: TButton
+  object btnSalvar: TButton
     Left = 188
     Top = 248
     Width = 75
     Height = 25
-    Caption = 'Salvar'
+    Caption = 'btnSalvar'
     TabOrder = 7
-    OnClick = SalvarClick
+    OnClick = btnSalvarClick
   end
 end

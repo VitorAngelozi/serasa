@@ -1,9 +1,10 @@
 object frmCadastro: TfrmCadastro
   Left = 0
   Top = 0
+  BorderStyle = bsSingle
   Caption = 'frmCadastro'
-  ClientHeight = 362
-  ClientWidth = 410
+  ClientHeight = 331
+  ClientWidth = 390
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -67,7 +68,6 @@ object frmCadastro: TfrmCadastro
     Height = 23
     MaxLength = 50
     TabOrder = 0
-    Text = 'Luis'
   end
   object edtSobrenome: TEdit
     Left = 188
@@ -76,58 +76,59 @@ object frmCadastro: TfrmCadastro
     Height = 23
     MaxLength = 50
     TabOrder = 1
-    Text = 'Inacio'
   end
-  object edtCep: TEdit
+  object btnLimpar: TButton
+    Left = 70
+    Top = 248
+    Width = 75
+    Height = 25
+    Caption = 'btnLimpar'
+    TabOrder = 2
+    OnClick = btnLimparClick
+  end
+  object btnSalvar: TButton
+    Left = 188
+    Top = 248
+    Width = 75
+    Height = 25
+    Caption = 'btnSalvar'
+    TabOrder = 3
+    OnClick = btnSalvarClick
+  end
+  object mskCpf: TMaskEdit
+    Left = 188
+    Top = 147
+    Width = 121
+    Height = 23
+    TabOrder = 4
+    Text = '000.000-00'
+  end
+  object mskDataNascimento: TMaskEdit
+    Left = 24
+    Top = 141
+    Width = 120
+    Height = 23
+    EditMask = '00/00/0000'
+    MaxLength = 10
+    TabOrder = 5
+    Text = '  /  /    '
+  end
+  object mskCep: TMaskEdit
     Left = 24
     Top = 197
-    Width = 121
+    Width = 120
     Height = 23
-    TabOrder = 2
-    Text = '1313...'
-  end
-  object edtCpf: TEdit
-    Left = 188
-    Top = 141
-    Width = 121
-    Height = 23
-    TabOrder = 3
-    Text = '1313...'
-    OnChange = edtCpfChange
+    EditMask = '00000-000'
+    MaxLength = 9
+    TabOrder = 6
+    Text = '     -   '
   end
   object edtEndereco: TEdit
     Left = 188
     Top = 197
     Width = 121
     Height = 23
-    MaxLength = 100
-    TabOrder = 4
-    Text = 'Rua das rachadinhas'
-  end
-  object edtDataNascimento: TEdit
-    Left = 24
-    Top = 141
-    Width = 121
-    Height = 23
-    NumbersOnly = True
-    TabOrder = 5
-    Text = '13/13/2013'
-  end
-  object Limpar: TButton
-    Left = 70
-    Top = 248
-    Width = 75
-    Height = 25
-    Caption = 'Limpar'
-    TabOrder = 6
-  end
-  object Salvar: TButton
-    Left = 188
-    Top = 248
-    Width = 75
-    Height = 25
-    Caption = 'Salvar'
+    MaxLength = 50
     TabOrder = 7
-    OnClick = SalvarClick
   end
 end

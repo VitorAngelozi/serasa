@@ -1,6 +1,7 @@
 object frmCadastro: TfrmCadastro
   Left = 0
   Top = 0
+  BorderStyle = bsSingle
   Caption = 'frmCadastro'
   ClientHeight = 331
   ClientWidth = 390
@@ -76,38 +77,6 @@ object frmCadastro: TfrmCadastro
     MaxLength = 50
     TabOrder = 1
   end
-  object edtCep: TEdit
-    Left = 24
-    Top = 197
-    Width = 121
-    Height = 23
-    MaxLength = 9
-    TabOrder = 4
-  end
-  object edtCpf: TEdit
-    Left = 188
-    Top = 141
-    Width = 121
-    Height = 23
-    MaxLength = 14
-    TabOrder = 3
-  end
-  object edtEndereco: TEdit
-    Left = 188
-    Top = 197
-    Width = 121
-    Height = 23
-    MaxLength = 100
-    TabOrder = 5
-  end
-  object edtDataNascimento: TEdit
-    Left = 24
-    Top = 141
-    Width = 121
-    Height = 23
-    NumbersOnly = True
-    TabOrder = 2
-  end
   object btnLimpar: TButton
     Left = 70
     Top = 248
@@ -125,5 +94,41 @@ object frmCadastro: TfrmCadastro
     Caption = 'btnSalvar'
     TabOrder = 7
     OnClick = btnSalvarClick
+  end
+  object mskCpf: TMaskEdit
+    Left = 188
+    Top = 147
+    Width = 121
+    Height = 23
+    TabOrder = 3
+    Text = '000.000-00'
+  end
+  object mskDataNascimento: TMaskEdit
+    Left = 24
+    Top = 141
+    Width = 120
+    Height = 23
+    EditMask = '00/00/0000'
+    MaxLength = 10
+    TabOrder = 2
+    Text = '  /  /    '
+  end
+  object mskCep: TMaskEdit
+    Left = 24
+    Top = 197
+    Width = 120
+    Height = 23
+    EditMask = '00000-000'
+    MaxLength = 9
+    TabOrder = 4
+    Text = '     -   '
+  end
+  object edtEndereco: TEdit
+    Left = 188
+    Top = 197
+    Width = 121
+    Height = 23
+    MaxLength = 50
+    TabOrder = 5
   end
 end

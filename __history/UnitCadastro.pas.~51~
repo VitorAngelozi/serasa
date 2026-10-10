@@ -21,10 +21,10 @@ type
     edtEndereco: TEdit;
     Label7: TLabel;
     edtDataNascimento: TEdit;
-    Limpar: TButton;
-    Salvar: TButton;
-    procedure edtCpfChange(Sender: TObject);
-    procedure SalvarClick(Sender: TObject);
+    btnLimpar: TButton;
+    btnSalvar: TButton;
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnLimparClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,9 +43,24 @@ begin
 
 end;
 
+//parte para qnd clicar em limpar
+
+procedure TfrmCadastro.btnLimparClick(Sender: TObject);
+begin
+  edtNome.Clear;
+  edtSobrenome.Clear;
+  edtCpf.Clear;
+  edtDataNascimento.Clear;
+  edtCep.Clear;
+  edtEndereco.Clear;
+  edtNome.SetFocus;
+end;
+
+
+
 //aqui refere-se a parte de clicar em salvar. vai fazer as
 //verificacoes de cada edit.
-procedure TfrmCadastro.SalvarClick(Sender: TObject);
+procedure TfrmCadastro.btnSalvarClick(Sender: TObject);
 
 //variaveis q vao ser usadas pra validar e formatar
  var
@@ -54,6 +69,8 @@ procedure TfrmCadastro.SalvarClick(Sender: TObject);
         DataNascimentoFormatado: string;
         DataValida: TDateTime;
         CepFormatado: string;
+        NumeroCpf: Int64;
+        NumeroCep: Integer;
 begin
 
 
@@ -99,6 +116,18 @@ begin
         Exit;
 
       end;
+       //validacao pra ver se so tem numero
+        if not TryStrToInt64(edtCpf.Text, NumeroCpf) then
+        begin
+          Application.MessageBox(
+            'O CPF deve conter apenas numeros',
+            'CPF invalido',
+            MB_OK + MB_ICONWARNING
+          );
+
+          edtCpf.SetFocus;
+          Exit;
+        end;
 
 //aq a cada 3 adiciona o .
         CpfFormatado := '';
@@ -114,6 +143,10 @@ begin
           CpfFormatado := CpfFormatado + '-';
 
         end;
+
+
+
+
 
         edtCpf.Text := CpfFormatado;
 
@@ -170,6 +203,19 @@ begin
           Exit;
         end;
 
+        //verificando se eh int
+        if not TryStrToInt(edtCep.Text, NumeroCep) then
+          begin
+            Application.MessageBox(
+              'O CEP deve conter apenas numeros',
+              'CEP invalido',
+              MB_OK + MB_ICONWARNING
+            );
+
+            edtCep.SetFocus;
+            Exit;
+          end;
+
         CepFormatado := '';
 
         for I := 1 to 8 do
@@ -179,6 +225,7 @@ begin
             if I = 5 then
               CepFormatado := CepFormatado + '-';
           end;
+
 
         edtCep.Text := CepFormatado;
 

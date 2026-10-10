@@ -1,6 +1,7 @@
 object frmCadastro: TfrmCadastro
   Left = 0
   Top = 0
+  BorderStyle = bsSingle
   Caption = 'frmCadastro'
   ClientHeight = 331
   ClientWidth = 390
@@ -67,7 +68,6 @@ object frmCadastro: TfrmCadastro
     Height = 23
     MaxLength = 50
     TabOrder = 0
-    Text = 'Luis'
   end
   object edtSobrenome: TEdit
     Left = 188
@@ -76,58 +76,78 @@ object frmCadastro: TfrmCadastro
     Height = 23
     MaxLength = 50
     TabOrder = 1
-    Text = 'Inacio'
   end
-  object edtCep: TEdit
-    Left = 24
-    Top = 197
+  object btnLimpar: TButton
+    Left = 70
+    Top = 248
+    Width = 75
+    Height = 25
+    Caption = 'btnLimpar'
+    TabOrder = 2
+    OnClick = btnLimparClick
+  end
+  object btnSalvar: TButton
+    Left = 188
+    Top = 248
+    Width = 75
+    Height = 25
+    Caption = 'btnSalvar'
+    TabOrder = 3
+    OnClick = btnSalvarClick
+  end
+  object ActionMainMenuBar1: TActionMainMenuBar
+    Left = 0
+    Top = 0
+    Width = 390
+    Height = 29
+    Caption = 'ActionMainMenuBar1'
+    Color = clMenuBar
+    ColorMap.DisabledFontColor = 10461087
+    ColorMap.HighlightColor = clWhite
+    ColorMap.BtnSelectedFont = clBlack
+    ColorMap.UnusedColor = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    Spacing = 0
+    ExplicitLeft = 128
+    ExplicitTop = 168
+    ExplicitWidth = 150
+  end
+  object mskCpf: TMaskEdit
+    Left = 188
+    Top = 147
     Width = 121
     Height = 23
-    TabOrder = 2
-    Text = '1313...'
+    TabOrder = 5
+    Text = '___.___-__'
   end
-  object edtCpf: TEdit
-    Left = 188
+  object mskDataNascimento: TMaskEdit
+    Left = 24
     Top = 141
     Width = 121
     Height = 23
-    MaxLength = 14
-    TabOrder = 3
-    OnChange = edtCpfChange
+    TabOrder = 6
+    Text = '__/__/____'
+  end
+  object mskCep: TMaskEdit
+    Left = 24
+    Top = 197
+    Width = 120
+    Height = 23
+    EditMask = '00000-000'
+    MaxLength = 9
+    TabOrder = 7
+    Text = '     -   '
   end
   object edtEndereco: TEdit
     Left = 188
     Top = 197
     Width = 121
     Height = 23
-    MaxLength = 100
-    TabOrder = 4
-    Text = 'Rua das rachadinhas'
-  end
-  object edtDataNascimento: TEdit
-    Left = 24
-    Top = 141
-    Width = 121
-    Height = 23
-    NumbersOnly = True
-    TabOrder = 5
-    Text = '13/13/2013'
-  end
-  object Limpar: TButton
-    Left = 70
-    Top = 248
-    Width = 75
-    Height = 25
-    Caption = 'Limpar'
-    TabOrder = 6
-  end
-  object Salvar: TButton
-    Left = 188
-    Top = 248
-    Width = 75
-    Height = 25
-    Caption = 'Salvar'
-    TabOrder = 7
-    OnClick = SalvarClick
+    MaxLength = 50
+    TabOrder = 8
   end
 end
